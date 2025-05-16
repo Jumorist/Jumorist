@@ -1,0 +1,249 @@
+body {
+    position: relative; /* Создаем контекст позиционирования для h1 */
+    font-family: sans-serif; /* Задаём шрифт по умолчанию */
+    margin: 0; /* Убираем отступы вокруг body */
+    background-color: rgb(35, 8, 82); /* Фон страницы cadetblue */
+    display: flex; /* Используем Flexbox для центрирования содержимого */
+    min-height: 100vh; /* Минимальная высота вьюпорта, чтобы контент был по центру даже если мало текста */
+}
+
+.header {
+    position: absolute; /* Или position: fixed;  Зависит от требований */
+    top: 20px; /* Прижимаем к верхнему краю */
+    left: 48%; /* Сдвигаем левый край к середине */
+    transform: translateX(-50%); /* Центрируем сам заголовок */
+    width: 100%; /* Чтобы занимал всю ширину, а transform работал правильно*/
+    text-align: center; /* Центрируем текст внутри заголовка */
+    margin: 0; /* Убираем стандартные отступы заголовка */
+     /* Добавляем фон для наглядности */
+    padding: 50px 0; /* Добавляем отступы сверху и снизу */
+    z-index: 10; /* Размещаем над другими элементами (если нужно) */
+    font-size: 3.5rem;
+}
+
+.container {
+     /* НАДО ЗАДНИЙ ФОН!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    padding: 25px 0 60px 0; /* Отступы внутри контейнера */
+    border-radius: 8px; /* Скругленные углы */
+     /* Тень для объема */
+    text-align: center; /* Центрируем текст внутри контейнера */
+    font-size: 14pt;
+    height: 60px;
+    position: absolute;
+    top: 25px;
+    left: 50%; /* Сдвигаем левый край к середине */
+    transform: translateX(-50%); /* Центрируем сам заголовок */
+    width: 50%; /* Чтобы занимал всю ширину, а transform работал правильно*/   
+}
+
+h1 {
+    color:white ; /* Тёмно-серый цвет заголовка */
+    margin-bottom: 5px; /* Отступ снизу заголовка */
+    position: relative; /* Нужно для z-index */
+    z-index: 1;
+    top: 0;
+    font-size: 3.5rem;
+}
+
+p {
+    color: white;
+    position: absolute;
+    top: 230px;
+    font-size: 24px;
+    left: 70px;
+    width: 500px;
+}
+
+.button {
+    background-color: rgb(60, 34, 112);
+    height: 50px;
+    width: 200px;
+    margin-top: 25px;
+    position: absolute;
+    transform: translateX(15%);
+    border-radius: 15px;
+    z-index: 10;
+    color :white;
+    font-size: 14pt;
+}
+
+.conter01 {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(25, 8, 54);
+    width: 260px;
+    height: 100px;
+    position: absolute;
+    top: 150px;
+    left: 0;
+}
+
+.conter02 {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(25, 8, 54);
+    width: 260px;
+    height: 100px;
+    position: absolute;
+    top: 260px;
+    left: 0;
+}
+
+.conter03 {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(25, 8, 54);
+    width: 260px;
+    height: 100px;
+    position: absolute;
+    top: 370px;
+    left: 0;
+}
+
+.conter04 {
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(25, 8, 54);
+    width: 260px;
+    height: 100px;
+    position: absolute;
+    top: 480px;
+    left: 0;
+}
+
+.button_undo {
+    background-color: rgb(0, 60, 255);
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    height: 50px;
+    width: 125px;
+    border-radius: 25px;
+    font-size: 14px;
+    color: white;
+    z-index: 10;
+}
+
+.kartinka {
+    position: absolute;
+    left: 800px;
+    top: 33px;
+    width: 150px;
+    height: auto;
+    border-radius: 75px;
+}
+
+.kart_prof {
+    position: absolute;
+    top: 230px;
+    left: 590px;
+    width: auto;
+    height: 300px;
+
+}
+
+.youtube {
+    position: absolute;
+    left: 100px;
+    top: 40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.tg {
+    position: absolute;
+    left: 250px;
+    top: 40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.kart_page {
+    position: absolute;
+    left: 380px;
+    top: 210px;
+    width: 550px;
+    height: auto;
+}
+
+.prog_sp {
+    position: absolute;
+    left: 100px;
+    top: 250px;
+    width: 1000px;
+    height: 300px;
+    padding: 0px;
+}
+
+h2 {
+    color:white ; /* Тёмно-серый цвет заголовка */
+    margin-bottom: 5px; /* Отступ снизу заголовка */
+    position: relative; /* Нужно для z-index */
+    z-index: 1;
+    background-color: rgb(28, 28, 106);
+    height: 40px;
+    width: 750px;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 45px rgb(255, 255, 255);
+    left: 50%; /* Сдвигаем левый край к середине */
+    transform: translateX(-50%);
+}
+
+.speaks {
+    position: absolute;
+    width: 400px;
+    height: 45px;
+    background-color: aqua;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+    align-content: center;
+    padding-left: 55px;
+}
+
+.speaks.fir {
+    position: absolute;
+    top: 400px;
+    
+}
+
+.speaks.sec {
+    position: absolute;
+    top: 450px;
+    
+}
+
+.speaks.tris {
+    position: absolute;
+    top: 500px;
+    
+}
+
+.speaks.four {
+    position: absolute;
+    top: 550px;
+ 
+}
+
+#musicBtn {
+    display: none;
+}
+
+.present1 {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgb(25, 8, 54);
+    width: 260px;
+    height: 100px;
+    position: absolute;
+    top: 150px;
+    right: 0;
+}

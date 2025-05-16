@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasion</title>
+    <link rel="stylesheet" href="stile.css">
+    <script>
+        class ForceAudio {
+            static instance = null;
+            
+            constructor() {
+                if (!ForceAudio.instance) {
+                    this.audio = new Audio('fon.mp3');
+                    this.audio.loop = true;
+                    this.audio.volume = 0.3;
+                    this.setupAudio();
+                    ForceAudio.instance = this;
+                }
+                return ForceAudio.instance;
+            }
+        
+            setupAudio() {
+                // Блокировка управления
+                this.audio.controls = false;
+                this.audio.style.display = 'none';
+                
+                // Восстановление состояния
+                this.audio.currentTime = localStorage.getItem('audioTime') || 0;
+                
+                // Автозапуск с обработкой политики
+                this.attemptPlay();
+                
+                // Постоянное сохранение позиции
+                setInterval(() => {
+                    localStorage.setItem('audioTime', this.audio.currentTime);
+                }, 1000);
+        
+                // Запрет паузы
+                this.audio.addEventListener('pause', () => {
+                    this.audio.play();
+                });
+        
+                // Блокировка контекстного меню
+                this.audio.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        
+            attemptPlay() {
+                this.audio.play()
+                    .catch(() => {
+                        // Запуск после первого взаимодействия
+                        const handler = () => {
+                            this.audio.play();
+                            document.removeEventListener('click', handler);
+                        };
+                        document.addEventListener('click', handler);
+                    });
+            }
+        }
+        
+        // Инициализация
+        window.addEventListener('load', () => new ForceAudio());
+    </script>
+</head>
+<body>
+
+    <div>
+        <a href="str1.html">
+            <button class="button_undo"><strong>MENU</strong></button>
+        </a>
+    </div>
+    <div>
+        <div id="audioAnchor" style="display:none;"></div>
+        <script>
+            audio.volume = 0.3; // 30% громкости
+        </script>
+    </div>
+        <text></text>
+    <div>
+        
+    </div>
+</body>
+</html>

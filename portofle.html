@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofle</title>
+    <link rel="stylesheet" href="stile.css">
+    <script>
+        class ForceAudio {
+            static instance = null;
+            
+            constructor() {
+                if (!ForceAudio.instance) {
+                    this.audio = new Audio('fon.mp3');
+                    this.audio.loop = true;
+                    this.audio.volume = 0.3;
+                    this.setupAudio();
+                    ForceAudio.instance = this;
+                }
+                return ForceAudio.instance;
+            }
+        
+            setupAudio() {
+                // Блокировка управления
+                this.audio.controls = false;
+                this.audio.style.display = 'none';
+                
+                // Восстановление состояния
+                this.audio.currentTime = localStorage.getItem('audioTime') || 0;
+                
+                // Автозапуск с обработкой политики
+                this.attemptPlay();
+                
+                // Постоянное сохранение позиции
+                setInterval(() => {
+                    localStorage.setItem('audioTime', this.audio.currentTime);
+                }, 1000);
+        
+                // Запрет паузы
+                this.audio.addEventListener('pause', () => {
+                    this.audio.play();
+                });
+        
+                // Блокировка контекстного меню
+                this.audio.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    return false;
+                });
+            }
+        
+            attemptPlay() {
+                this.audio.play()
+                    .catch(() => {
+                        // Запуск после первого взаимодействия
+                        const handler = () => {
+                            this.audio.play();
+                            document.removeEventListener('click', handler);
+                        };
+                        document.addEventListener('click', handler);
+                    });
+            }
+        }
+        
+        // Инициализация
+        window.addEventListener('load', () => new ForceAudio());
+    </script>
+</head>
+<body>
+    <div>
+        <a href="str1.html">
+            <button class="button_undo"><strong>MENU</strong></button>
+        </a>
+    </div>
+    <div class="container">
+        <h1>Hello World, I am Jumorist</h1>
+    </div>
+    <div>
+        <p>
+            My names is Jumorist. I am a college student at the Institute of Communications.<br>
+            I'm in my second year studying to become a programmer.
+        </p>        
+    </div>
+    <div>
+        <img src="https://avatars.mds.yandex.net/i?id=c10f2c8040563d36f3e5a0e07903342bb5572220-9235087-images-thumbs&n=13" class="kart_prof" >
+    </div>
+    <div>
+        <div id="audioAnchor" style="display:none;"></div>
+        <script>
+            audio.volume = 0.3; // 30% громкости
+        </script>
+    </div>
+</body>
+</html>
